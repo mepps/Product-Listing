@@ -1,0 +1,24 @@
+<h1>Add a Product</h1>
+<h2>Have a Product to sell? Enter it here.</h2>
+
+<div id="errors">
+	<% unless flash.alert == nil
+		flash.alert.each do |message| %>
+		<p><%=message + "."%></p>
+		<% end -%>
+	<% end -%>
+</div>
+
+<form action="/products" method="post" />
+	<input type="hidden" name="_method" value="create" />
+  	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<label>Product Name</label><br />
+	<input type="text" name="name" placeholder="Product name" /><br />
+	<label>Product Description</label><br />
+	<input type="text" name="description" placeholder="Product description" /><br />
+	<label>Price of Product</label><br />
+	<input type="text" name="pricing" placeholder="Price of product" /><br />
+  	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="submit" value="Save Product" />
+</form>
+

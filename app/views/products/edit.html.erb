@@ -1,0 +1,22 @@
+<h1>Edit Product Information</h1>
+
+<div id="errors">
+	<% unless flash.alert == nil
+		flash.alert.each do |message| %>
+		<p><%=message + "."%></p>
+		<% end -%>
+	<% end -%>
+</div>
+
+
+<form id ="edit" action="<%="/products/#{@product.id}"%>" method="post">
+	<input type="hidden" name="_method" value="put" />
+	<label>Product Name</label><br />
+	<input type="text" name="name" value="<%=@product.name%>" /><br />
+	<label>Product Description</label><br />
+	<input type="text" name="description" value="<%=@product.description%>" /><br />
+	<label>Price of Product</label><br />
+	<input type="text" name="pricing" value="<%=@product.pricing%>" /><br />
+  	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="submit" class="btn btn-primary" value="Update" />
+</form>

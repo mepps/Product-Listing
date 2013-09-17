@@ -1,0 +1,9 @@
+<h1>Store Home</h1>
+<button class="btn btn-default"><%=link_to 'Add Product', new_product_path %></button>
+<% @products.each do |product| %>
+
+<h3><%=product.name%></h3>
+<%= link_to 'Learn more', product %><br />
+
+<% end %>
+
